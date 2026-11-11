@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
-import { ArrowUpRight, Check, Copy, Github, Terminal } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Check, Copy, Github, Terminal } from 'lucide-react';
 import { PROFILE } from '../data/portfolioData';
 import { GravityLetters } from './GravityLetters';
 import { MagneticButton } from './MagneticButton';
@@ -11,6 +11,14 @@ interface HeroProps {
 }
 
 const SMOOTH_OUT = [0.22, 1, 0.36, 1] as const;
+
+const HERO_LINKS = [
+  { label: 'GitHub', href: PROFILE.github },
+  { label: 'LinkedIn', href: PROFILE.linkedin },
+  { label: 'LeetCode', href: PROFILE.leetcode },
+  { label: 'Codeforces', href: PROFILE.codeforces },
+  { label: 'PyPI · lmem', href: PROFILE.pypiLmem },
+];
 
 export function Hero({ onExploreSystems }: HeroProps) {
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -143,26 +151,36 @@ export function Hero({ onExploreSystems }: HeroProps) {
           </button>
         </motion.div>
 
-        {/* Telemetry Strip */}
+        {/* Minimal Social Links Bar */}
         <motion.div
-          initial={{ y: 18, opacity: 0, filter: 'blur(4px)' }}
+          initial={{ y: 14, opacity: 0, filter: 'blur(4px)' }}
           animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
-          transition={{ duration: 0.5, delay: 0.46, ease: SMOOTH_OUT }}
-          className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-4"
+          transition={{ duration: 0.48, delay: 0.46, ease: SMOOTH_OUT }}
+          className="mt-16 flex flex-col gap-4 border-t border-white/[0.1] pt-6 sm:flex-row sm:items-center sm:justify-between"
         >
-          {PROFILE.stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="obsidian-card rounded-2xl p-4 sm:p-5"
-            >
-              <div className="font-mono text-[11px] uppercase tracking-wider text-zinc-500">
-                {stat.label}
-              </div>
-              <div className="mt-2 font-mono text-lg sm:text-xl font-semibold text-white">
-                {stat.value}
-              </div>
-            </div>
-          ))}
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2.5">
+            {HERO_LINKS.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex items-center gap-1.5 font-mono text-xs text-zinc-400 hover:text-white transition-colors"
+              >
+                <span>{link.label}</span>
+                <ArrowUpRight className="h-3.5 w-3.5 text-zinc-600 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
+              </a>
+            ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={onExploreSystems}
+            className="group inline-flex items-center gap-1.5 self-start font-mono text-xs text-zinc-500 hover:text-white transition-colors sm:self-auto"
+          >
+            <span>Scroll to Systems</span>
+            <ArrowDown className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-y-0.5" />
+          </button>
         </motion.div>
       </div>
     </section>

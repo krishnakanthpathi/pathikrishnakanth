@@ -53,12 +53,6 @@ export const PROFILE = {
   codeforces: 'https://codeforces.com/profile/krishnakanthpathi',
   pypiLmem: 'https://pypi.org/project/lmem/',
   installCmd: 'pip install lmem',
-  stats: [
-    { label: 'Core Projects', value: '9 Shipped' },
-    { label: 'LeetCode Knight', value: '1,300+ (Top 5%)' },
-    { label: 'B.Tech CSE CGPA', value: '8.80' },
-    { label: 'NPTEL Java DSA', value: 'Top 1%' },
-  ],
 };
 
 export const PROJECTS: ProjectItem[] = [
