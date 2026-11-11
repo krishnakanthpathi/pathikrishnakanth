@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { DitherCanvas } from './components/DitherCanvas';
 import { Navbar, NAV_ITEMS } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -9,16 +9,26 @@ import { Footer } from './components/Footer';
 
 export function App() {
   const [activeSection, setActiveSection] = useState('hero');
+  const lockUntilRef = useRef<number>(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const marker = window.scrollY + 240;
-      for (const item of NAV_ITEMS) {
+      if (Date.now() < lockUntilRef.current) return;
+
+      const atBottom =
+        window.innerHeight + Math.ceil(window.scrollY) >=
+        document.documentElement.scrollHeight - 40;
+      if (atBottom) {
+        setActiveSection('contact');
+        return;
+      }
+
+      const marker = window.scrollY + 220;
+      for (let i = NAV_ITEMS.length - 1; i >= 0; i--) {
+        const item = NAV_ITEMS[i];
         const el = document.getElementById(item.id);
         if (!el) continue;
-        const top = el.offsetTop;
-        const height = el.offsetHeight;
-        if (marker >= top && marker < top + height) {
+        if (marker >= el.offsetTop) {
           setActiveSection(item.id);
           break;
         }
@@ -31,14 +41,25 @@ export function App() {
 
   const navigateTo = (id: string) => {
     setActiveSection(id);
+    lockUntilRef.current = Date.now() + 750;
+
+    if (id === 'contact') {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: 'smooth',
+      });
+      return;
+    }
+
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      const top = Math.max(0, el.getBoundingClientRect().top + window.scrollY - 16);
+      window.scrollTo({ top, behavior: 'smooth' });
     }
   };
 
   return (
-    <div className="relative min-h-screen bg-black text-zinc-100">
+    <div className="relative min-h-screen overflow-x-clip bg-black text-zinc-100">
       <div className="pointer-events-none fixed inset-0 z-0 amoled-grid opacity-55" />
       <DitherCanvas opacity={0.22} />
 

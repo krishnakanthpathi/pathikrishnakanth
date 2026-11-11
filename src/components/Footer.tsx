@@ -33,7 +33,7 @@ export function Footer() {
   };
 
   return (
-    <footer id="contact" className="relative border-t border-white/[0.08] py-20 px-4 sm:px-6 lg:px-8">
+    <footer id="contact" className="relative scroll-mt-24 border-t border-white/[0.08] py-20 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto w-full max-w-6xl">
         <div className="obsidian-card rounded-3xl p-8 sm:p-12">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">

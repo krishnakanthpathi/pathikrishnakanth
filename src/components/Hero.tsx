@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import confetti from 'canvas-confetti';
-import { ArrowDown, ArrowUpRight, Check, Copy, Github, Terminal } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Github } from 'lucide-react';
 import { PROFILE } from '../data/portfolioData';
 import { GravityLetters } from './GravityLetters';
 import { MagneticButton } from './MagneticButton';
@@ -21,40 +19,6 @@ const HERO_LINKS = [
 ];
 
 export function Hero({ onExploreSystems }: HeroProps) {
-  const [copiedEmail, setCopiedEmail] = useState(false);
-  const [copiedInstall, setCopiedInstall] = useState(false);
-
-  const fireMonochromeBurst = () => {
-    confetti({
-      particleCount: 36,
-      spread: 58,
-      origin: { y: 0.65 },
-      colors: ['#ffffff', '#e4e4e7', '#a1a1aa', '#52525b'],
-      disableForReducedMotion: true,
-    });
-  };
-
-  const handleCopyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(PROFILE.email);
-      fireMonochromeBurst();
-      setCopiedEmail(true);
-      setTimeout(() => setCopiedEmail(false), 2200);
-    } catch {
-      window.location.href = `mailto:${PROFILE.email}`;
-    }
-  };
-
-  const handleCopyInstall = async () => {
-    try {
-      await navigator.clipboard.writeText(PROFILE.installCmd);
-      setCopiedInstall(true);
-      setTimeout(() => setCopiedInstall(false), 1800);
-    } catch {
-      // ignore clipboard errors
-    }
-  };
-
   return (
     <section
       id="hero"
@@ -111,51 +75,13 @@ export function Hero({ onExploreSystems }: HeroProps) {
             <span>GitHub</span>
             <ArrowUpRight className="h-3.5 w-3.5 text-zinc-400 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
           </MagneticButton>
-
-          <MagneticButton
-            onClick={handleCopyEmail}
-            className="inline-flex h-11 items-center gap-2 rounded-full border border-white/12 bg-black px-5 font-mono text-xs font-medium text-zinc-300 hover:border-white/25 hover:text-white transition-colors"
-          >
-            {copiedEmail ? (
-              <>
-                <Check className="h-3.5 w-3.5 text-white" />
-                <span className="text-white">Copied {PROFILE.email}</span>
-              </>
-            ) : (
-              <>
-                <Copy className="h-3.5 w-3.5 text-zinc-400" />
-                <span>{PROFILE.email}</span>
-              </>
-            )}
-          </MagneticButton>
-        </motion.div>
-
-        {/* Flagship Package Quick-Copy */}
-        <motion.div
-          initial={{ y: 12, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.45, delay: 0.4, ease: SMOOTH_OUT }}
-          className="mt-6 flex flex-wrap items-center gap-3"
-        >
-          <button
-            type="button"
-            onClick={handleCopyInstall}
-            className="tactile-btn inline-flex items-center gap-2.5 rounded-xl border border-white/10 bg-[#08080b] px-3.5 py-2 font-mono text-xs text-zinc-300 hover:border-white/25 hover:text-white"
-          >
-            <Terminal className="h-3.5 w-3.5 text-zinc-500" />
-            <span className="text-zinc-500">$</span>
-            <span>{PROFILE.installCmd}</span>
-            <span className="ml-1 border-l border-white/10 pl-2 text-[11px] text-zinc-500">
-              {copiedInstall ? 'copied' : 'copy'}
-            </span>
-          </button>
         </motion.div>
 
         {/* Minimal Social Links Bar */}
         <motion.div
           initial={{ y: 14, opacity: 0, filter: 'blur(4px)' }}
           animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
-          transition={{ duration: 0.48, delay: 0.46, ease: SMOOTH_OUT }}
+          transition={{ duration: 0.48, delay: 0.4, ease: SMOOTH_OUT }}
           className="mt-16 flex flex-col gap-4 border-t border-white/[0.1] pt-6 sm:flex-row sm:items-center sm:justify-between"
         >
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2.5">
