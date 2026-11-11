@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, ArrowUpRight, Github } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, FileText, Github } from 'lucide-react';
 import { PROFILE } from '../data/portfolioData';
 import { GravityLetters } from './GravityLetters';
 import { MagneticButton } from './MagneticButton';
@@ -63,6 +63,17 @@ export function Hero({ onExploreSystems }: HeroProps) {
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-black/10 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
               <ArrowUpRight className="h-3.5 w-3.5" />
             </span>
+          </MagneticButton>
+
+          <MagneticButton
+            href={PROFILE.resume}
+            target="_blank"
+            rel="noreferrer"
+            className="group inline-flex h-11 items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-5 text-sm font-medium text-zinc-200 hover:border-white/30 hover:bg-white/[0.08] hover:text-white transition-colors"
+          >
+            <FileText className="h-4 w-4" />
+            <span>Resume</span>
+            <ArrowUpRight className="h-3.5 w-3.5 text-zinc-400 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
           </MagneticButton>
 
           <MagneticButton

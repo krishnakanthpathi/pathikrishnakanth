@@ -60,6 +60,7 @@ export const PROFILE = {
   leetcode: 'https://leetcode.com/u/krishnakanthpathi/',
   codeforces: 'https://codeforces.com/profile/krishnakanthpathi',
   pypiLmem: 'https://pypi.org/project/lmem/',
+  resume: '/resume.pdf',
 };
 
 export const PROJECTS: ProjectItem[] = [

@@ -5,6 +5,7 @@ import { PROFILE } from '../data/portfolioData';
 import { MagneticButton } from './MagneticButton';
 
 const SOCIAL_LINKS = [
+  { label: 'Resume', href: PROFILE.resume },
   { label: 'GitHub', href: PROFILE.github },
   { label: 'LinkedIn', href: PROFILE.linkedin },
   { label: 'LeetCode', href: PROFILE.leetcode },
