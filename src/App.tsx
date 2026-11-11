@@ -5,6 +5,7 @@ import { Hero } from './components/Hero';
 import { SystemsSection } from './components/SystemsSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { ArsenalSection } from './components/ArsenalSection';
+import { AnimeSection } from './components/AnimeSection';
 import { Footer } from './components/Footer';
 
 export function App() {
@@ -70,6 +71,7 @@ export function App() {
         <SystemsSection />
         <ExperienceSection />
         <ArsenalSection />
+        <AnimeSection />
       </main>
 
       <Footer />

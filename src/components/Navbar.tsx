@@ -31,11 +31,16 @@ export function Navbar({ activeSection, onNavigate }: NavbarProps) {
         <button
           type="button"
           onClick={() => onNavigate('hero')}
-          className="hidden sm:flex items-center gap-2 rounded-full px-3 py-1.5 font-mono text-xs font-medium tracking-tight text-white hover:bg-white/[0.06] transition-colors"
-          aria-label="Scroll to top"
+          className="hidden sm:flex group items-center rounded-full p-1 text-white hover:bg-white/[0.06] transition-colors"
+          aria-label="Krishna Kanth Pathi — Scroll to top"
         >
-          <span className="inline-block h-2 w-2 rotate-45 border border-white bg-white/80" />
-          <span>KK</span>
+          <img
+            src="/favicon.svg"
+            alt="KK Logo"
+            width={26}
+            height={26}
+            className="h-[26px] w-[26px] rounded-lg transition-transform duration-200 group-hover:scale-105"
+          />
         </button>
 
         <div className="hidden sm:block h-4 w-px bg-white/10 mx-0.5" />

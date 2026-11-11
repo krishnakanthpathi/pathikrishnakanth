@@ -41,6 +41,15 @@ export interface StackDomain {
   items: string[];
 }
 
+export interface AnimeFrame {
+  id: string;
+  title: string;
+  series: string;
+  src: string;
+  resolution: string;
+  brightEdge?: boolean;
+}
+
 export const PROFILE = {
   name: 'Krishna Kanth Pathi',
   handle: 'krishnakanthpathi',
@@ -311,5 +320,37 @@ export const STACK_DOMAINS: StackDomain[] = [
     title: 'Storage & Infra',
     code: '04',
     items: ['SQLite', 'MongoDB', 'MySQL', 'Docker', 'Sockets', 'Linux / macOS'],
+  },
+];
+
+export const ANIME_FRAMES: AnimeFrame[] = [
+  {
+    id: 'aot-survey-corps',
+    title: 'Eren, Mikasa & Armin',
+    series: 'Attack on Titan',
+    src: '/anime/aot-survey-corps.webp',
+    resolution: '1440x810',
+    brightEdge: true,
+  },
+  {
+    id: 'jjk-sukuna',
+    title: 'Ryomen Sukuna',
+    series: 'Jujutsu Kaisen',
+    src: '/anime/jjk-sukuna.webp',
+    resolution: '1376x768',
+  },
+  {
+    id: 'jjk-malevolent-shrine',
+    title: 'Malevolent Shrine',
+    series: 'Jujutsu Kaisen',
+    src: '/anime/jjk-malevolent-shrine.webp',
+    resolution: '1440x804',
+  },
+  {
+    id: 'jjk-sukuna-domain',
+    title: 'Slashed Skyline',
+    series: 'Jujutsu Kaisen',
+    src: '/anime/jjk-sukuna-domain.webp',
+    resolution: '1376x768',
   },
 ];
