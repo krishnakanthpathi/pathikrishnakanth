@@ -100,19 +100,13 @@ export function AnimeSection() {
                 <Maximize2 className="h-3.5 w-3.5" />
               </div>
 
-              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 sm:p-6">
-                <div>
-                  <div className="font-mono text-[11px] uppercase tracking-wider text-zinc-400">
-                    {frame.series}
-                  </div>
-                  <h3 className="mt-1 text-lg font-semibold tracking-tight text-white">
-                    {frame.title}
-                  </h3>
+              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                <div className="font-mono text-[11px] uppercase tracking-wider text-zinc-400">
+                  {frame.series}
                 </div>
-
-                <span className="hidden sm:inline-block rounded-full border border-white/12 bg-black/70 px-2.5 py-1 font-mono text-[10px] text-zinc-400 backdrop-blur-md">
-                  {frame.resolution}
-                </span>
+                <h3 className="mt-1 text-lg font-semibold tracking-tight text-white">
+                  {frame.title}
+                </h3>
               </div>
             </motion.button>
           ))}
@@ -192,12 +186,8 @@ export function AnimeSection() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 font-mono text-xs text-zinc-400">
-                  <span>{activeFrame.resolution}</span>
-                  <span className="text-zinc-600">·</span>
-                  <span>
-                    {activeIndex + 1} / {ANIME_FRAMES.length}
-                  </span>
+                <div className="font-mono text-xs text-zinc-400">
+                  {activeIndex + 1} / {ANIME_FRAMES.length}
                 </div>
               </div>
             </motion.div>

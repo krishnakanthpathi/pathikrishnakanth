@@ -46,7 +46,6 @@ export interface AnimeFrame {
   title: string;
   series: string;
   src: string;
-  resolution: string;
   brightEdge?: boolean;
 }
 
@@ -329,7 +328,6 @@ export const ANIME_FRAMES: AnimeFrame[] = [
     title: 'Eren, Mikasa & Armin',
     series: 'Attack on Titan',
     src: '/anime/aot-survey-corps.webp',
-    resolution: '1440x810',
     brightEdge: true,
   },
   {
@@ -337,20 +335,17 @@ export const ANIME_FRAMES: AnimeFrame[] = [
     title: 'Ryomen Sukuna',
     series: 'Jujutsu Kaisen',
     src: '/anime/jjk-sukuna.webp',
-    resolution: '1376x768',
   },
   {
     id: 'jjk-malevolent-shrine',
     title: 'Malevolent Shrine',
     series: 'Jujutsu Kaisen',
     src: '/anime/jjk-malevolent-shrine.webp',
-    resolution: '1440x804',
   },
   {
     id: 'jjk-sukuna-domain',
     title: 'Slashed Skyline',
     series: 'Jujutsu Kaisen',
     src: '/anime/jjk-sukuna-domain.webp',
-    resolution: '1376x768',
   },
 ];
