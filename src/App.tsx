@@ -6,14 +6,11 @@ import { SystemsSection } from './components/SystemsSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { ArsenalSection } from './components/ArsenalSection';
 import { Footer } from './components/Footer';
-import { useGitHubRepos } from './hooks/useGitHubRepos';
 import { sound } from './utils/sound';
 
 export function App() {
   const [activeSection, setActiveSection] = useState('hero');
   const [muted, setMuted] = useState(() => sound.isMuted());
-
-  const { repos, repoMap, syncedLive } = useGitHubRepos();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,15 +57,8 @@ export function App() {
       />
 
       <main className="relative z-10">
-        <Hero
-          repoCount={Math.max(repos.length, 47)}
-          onExploreSystems={() => navigateTo('systems')}
-        />
-        <SystemsSection
-          repos={repos}
-          repoMap={repoMap}
-          syncedLive={syncedLive}
-        />
+        <Hero onExploreSystems={() => navigateTo('systems')} />
+        <SystemsSection />
         <ExperienceSection />
         <ArsenalSection />
       </main>

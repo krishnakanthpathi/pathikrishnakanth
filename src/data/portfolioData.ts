@@ -1,12 +1,10 @@
-export type ProjectCategory = 'rust-ai' | 'mcp' | 'fullstack';
+export type ProjectCategory = 'ai-systems' | 'mcp' | 'fullstack' | 'reference';
 
 export interface ProjectItem {
   id: string;
-  repoName: string;
   name: string;
   kicker: string;
   category: ProjectCategory;
-  featured: boolean;
   language: string;
   summary: string;
   architecture: string[];
@@ -15,7 +13,6 @@ export interface ProjectItem {
   liveUrl?: string;
   packageBadge?: string;
   packageUrl?: string;
-  starsFallback: number;
 }
 
 export interface ExperienceItem {
@@ -57,7 +54,7 @@ export const PROFILE = {
   pypiLmem: 'https://pypi.org/project/lmem/',
   installCmd: 'pip install lmem',
   stats: [
-    { label: 'Public Repos', value: '47+' },
+    { label: 'Core Projects', value: '9 Shipped' },
     { label: 'LeetCode Knight', value: '1,300+ (Top 5%)' },
     { label: 'B.Tech CSE CGPA', value: '8.80' },
     { label: 'NPTEL Java DSA', value: 'Top 1%' },
@@ -67,11 +64,9 @@ export const PROFILE = {
 export const PROJECTS: ProjectItem[] = [
   {
     id: 'lightmem',
-    repoName: 'lightmem',
     name: 'LightMem',
     kicker: 'Agent Memory',
-    category: 'rust-ai',
-    featured: true,
+    category: 'ai-systems',
     language: 'Rust',
     summary:
       'Local AI agent memory engine and MCP server in Rust with SQLite FTS5 search, ONNX embeddings, and extractive QA.',
@@ -85,15 +80,12 @@ export const PROJECTS: ProjectItem[] = [
     liveUrl: 'https://lightmem.vercel.app',
     packageBadge: 'pip install lmem',
     packageUrl: 'https://pypi.org/project/lmem/',
-    starsFallback: 1,
   },
   {
     id: 'lightstt',
-    repoName: 'lightstt',
     name: 'LightSTT',
     kicker: 'Speech-to-Text',
-    category: 'rust-ai',
-    featured: true,
+    category: 'ai-systems',
     language: 'Rust',
     summary:
       'Fast Rust speech-to-text CLI and daemon supporting live mic capture, Groq/OpenAI/Phonon-2 ASR, and local cleanup.',
@@ -104,15 +96,12 @@ export const PROJECTS: ProjectItem[] = [
     ],
     stack: ['Rust', 'Audio', 'Groq', 'Ollama', 'REST'],
     githubUrl: 'https://github.com/krishnakanthpathi/lightstt',
-    starsFallback: 0,
   },
   {
     id: 'maxi',
-    repoName: 'maxi',
     name: 'Maxi',
     kicker: 'Voice Assistant',
-    category: 'rust-ai',
-    featured: true,
+    category: 'ai-systems',
     language: 'Python',
     summary:
       'Voice-controlled desktop assistant with a native macOS floating HUD, LLM backend, and MCP tool support.',
@@ -124,15 +113,12 @@ export const PROJECTS: ProjectItem[] = [
     stack: ['Python', 'SwiftUI', 'macOS', 'MCP', 'Whisper'],
     githubUrl: 'https://github.com/krishnakanthpathi/maxi',
     liveUrl: 'https://maxi-sigma.vercel.app',
-    starsFallback: 1,
   },
   {
     id: 'native-assistant-mcp',
-    repoName: 'native-assistant-mcp',
     name: 'Native Assistant MCP',
     kicker: 'OS Automation',
     category: 'mcp',
-    featured: true,
     language: 'Python',
     summary:
       'MCP server giving AI agents 49+ native OS controls for windows, Spaces, Finder, clipboard, and input.',
@@ -143,15 +129,42 @@ export const PROJECTS: ProjectItem[] = [
     ],
     stack: ['Python', 'FastMCP', 'macOS APIs', 'Windows'],
     githubUrl: 'https://github.com/krishnakanthpathi/native-assistant-mcp',
-    starsFallback: 1,
+  },
+  {
+    id: 'whatsapp-mcp',
+    name: 'WhatsApp MCP',
+    kicker: 'Messaging Bridge',
+    category: 'mcp',
+    language: 'Python',
+    summary:
+      'MCP server letting AI agents verify numbers, resolve contact aliases, and send WhatsApp messages or files.',
+    architecture: [
+      'Pairs once via QR code or phone code and persists the session in SQLite',
+      'Maps safe contact aliases to prevent sending messages to wrong numbers',
+    ],
+    stack: ['Python', 'FastMCP', 'whatsmeow', 'SQLite'],
+    githubUrl: 'https://github.com/krishnakanthpathi/whatsapp-mcp',
+  },
+  {
+    id: 'discord-bot-mcp',
+    name: 'Discord Bot MCP',
+    kicker: 'Discord Automation',
+    category: 'mcp',
+    language: 'Python',
+    summary:
+      'MCP server for managing Discord servers, channels, messages, reactions, and FFmpeg voice audio.',
+    architecture: [
+      'Creates channels/categories, sends rich embeds, and streams audio in voice channels',
+      'Exposes server discovery, history retrieval, and live playback status to AI agents',
+    ],
+    stack: ['Python', 'FastMCP', 'discord.py', 'FFmpeg'],
+    githubUrl: 'https://github.com/krishnakanthpathi/discord-bot-mcp',
   },
   {
     id: 'localshare',
-    repoName: 'localshare',
     name: 'LocalShare 2.1',
     kicker: 'P2P File Transfer',
     category: 'fullstack',
-    featured: true,
     language: 'Python',
     summary:
       'Encrypted peer-to-peer file and folder transfer over LAN and Tailscale using parallel TCP sockets.',
@@ -162,15 +175,12 @@ export const PROJECTS: ProjectItem[] = [
     ],
     stack: ['Python', 'TCP/UDP', 'AES-256-GCM', 'Tailscale', 'React'],
     githubUrl: 'https://github.com/krishnakanthpathi/localshare',
-    starsFallback: 0,
   },
   {
     id: 'queryport',
-    repoName: 'QueryPort',
     name: 'QueryPort',
     kicker: 'Headless CMS',
     category: 'fullstack',
-    featured: true,
     language: 'TypeScript',
     summary:
       'Headless developer portfolio CMS that manages projects, skills, and coding leaderboards through a REST API.',
@@ -182,173 +192,20 @@ export const PROJECTS: ProjectItem[] = [
     stack: ['TypeScript', 'React', 'Node.js', 'MongoDB'],
     githubUrl: 'https://github.com/krishnakanthpathi/QueryPort',
     liveUrl: 'https://query-port-brown.vercel.app/',
-    starsFallback: 1,
-  },
-  {
-    id: 'memorize',
-    repoName: 'memorize',
-    name: 'Memorize',
-    kicker: 'Knowledge Base',
-    category: 'rust-ai',
-    featured: true,
-    language: 'TypeScript',
-    summary:
-      'Markdown notes workspace combining a React 19 UI, FastAPI backend, and MCP server with semantic search.',
-    architecture: [
-      'Combines a FastMCP server, FastAPI REST service, and React 19 Vite frontend',
-      'Indexes notes and media using hybrid BM25 keyword and vector search',
-    ],
-    stack: ['TypeScript', 'React 19', 'FastAPI', 'FastMCP'],
-    githubUrl: 'https://github.com/krishnakanthpathi/memorize',
-    starsFallback: 1,
-  },
-  {
-    id: 'chromepilot',
-    repoName: 'ChromePilot',
-    name: 'ChromePilot',
-    kicker: 'Chrome Extension',
-    category: 'fullstack',
-    featured: true,
-    language: 'TypeScript',
-    summary:
-      'Chrome extension adding a Cmd+K command palette and inline AI ghost-text autocomplete to LeetCode.',
-    architecture: [
-      'Predicts next lines directly inside the Monaco editor on comment or 5s idle',
-      'Press Tab to accept ghost suggestions or Cmd+K to insert code templates',
-    ],
-    stack: ['TypeScript', 'Chrome Extension', 'Monaco'],
-    githubUrl: 'https://github.com/krishnakanthpathi/ChromePilot',
-    starsFallback: 0,
-  },
-  {
-    id: 'whatsapp-mcp',
-    repoName: 'whatsapp-mcp',
-    name: 'WhatsApp MCP',
-    kicker: 'Messaging Bridge',
-    category: 'mcp',
-    featured: true,
-    language: 'Python',
-    summary:
-      'MCP server letting AI agents verify numbers, resolve contact aliases, and send WhatsApp messages or files.',
-    architecture: [
-      'Pairs once via QR code or phone code and persists the session in SQLite',
-      'Maps safe contact aliases to prevent sending messages to wrong numbers',
-    ],
-    stack: ['Python', 'FastMCP', 'whatsmeow', 'SQLite'],
-    githubUrl: 'https://github.com/krishnakanthpathi/whatsapp-mcp',
-    starsFallback: 0,
-  },
-  {
-    id: 'discord-bot-mcp',
-    repoName: 'discord-bot-mcp',
-    name: 'Discord Bot MCP',
-    kicker: 'Discord Automation',
-    category: 'mcp',
-    featured: false,
-    language: 'Python',
-    summary:
-      'MCP server for managing Discord servers, channels, messages, reactions, and FFmpeg voice audio.',
-    architecture: [
-      'Creates channels/categories, sends rich embeds, and streams audio in voice channels',
-    ],
-    stack: ['Python', 'FastMCP', 'discord.py', 'FFmpeg'],
-    githubUrl: 'https://github.com/krishnakanthpathi/discord-bot-mcp',
-    starsFallback: 0,
-  },
-  {
-    id: 'autofill',
-    repoName: 'autofill',
-    name: 'Voice Autofill',
-    kicker: 'Desktop Utility',
-    category: 'rust-ai',
-    featured: false,
-    language: 'Python',
-    summary:
-      'Floating hotkey launcher that uses offline voice search and LightMem to paste saved facts into any app.',
-    architecture: [
-      'Captures active window focus, transcribes speech offline, and pastes exact answers',
-    ],
-    stack: ['Python', 'LightMem', 'Offline STT'],
-    githubUrl: 'https://github.com/krishnakanthpathi/autofill',
-    starsFallback: 0,
-  },
-  {
-    id: 'codebuddy',
-    repoName: 'CodeBuddy',
-    name: 'CodeBuddy',
-    kicker: 'Code Snippets',
-    category: 'fullstack',
-    featured: false,
-    language: 'TypeScript',
-    summary:
-      'Web app to save reusable code templates, explain solution intuition, and share approaches clearly.',
-    architecture: ['TypeScript backend and React frontend deployed on Vercel'],
-    stack: ['TypeScript', 'React', 'Node.js'],
-    githubUrl: 'https://github.com/krishnakanthpathi/CodeBuddy',
-    liveUrl: 'https://code-buddy-mu.vercel.app/',
-    starsFallback: 0,
-  },
-  {
-    id: 'parsepoint',
-    repoName: 'ParsePoint',
-    name: 'ParsePoint',
-    kicker: 'Finance Parser',
-    category: 'fullstack',
-    featured: false,
-    language: 'TypeScript',
-    summary:
-      'Full-stack tool that parses bank statements into clear spending categories and charts.',
-    architecture: ['Decoupled TypeScript parser service and Vercel dashboard'],
-    stack: ['TypeScript', 'React', 'Node.js'],
-    githubUrl: 'https://github.com/krishnakanthpathi/ParsePoint',
-    liveUrl: 'https://parse-point.vercel.app',
-    starsFallback: 0,
-  },
-  {
-    id: 'resume-fit-tracker',
-    repoName: 'resume-fit-tracker',
-    name: 'Resume Fit Tracker',
-    kicker: 'NLP Matcher',
-    category: 'rust-ai',
-    featured: false,
-    language: 'Python',
-    summary:
-      'FastAPI tool scoring how well a resume matches a job description using embeddings and SpaCy.',
-    architecture: ['Uses MiniLM sentence embeddings and SpaCy to highlight missing skills'],
-    stack: ['Python', 'FastAPI', 'SpaCy', 'MiniLM'],
-    githubUrl: 'https://github.com/krishnakanthpathi/resume-fit-tracker',
-    starsFallback: 0,
-  },
-  {
-    id: 'passphotomaker',
-    repoName: 'passphotomaker',
-    name: 'PassPhotoMaker',
-    kicker: 'Photo Tool',
-    category: 'fullstack',
-    featured: false,
-    language: 'TypeScript',
-    summary:
-      'Browser-based passport photo cropper and print-sheet builder with zero server uploads.',
-    architecture: ['Runs 100% client-side using HTML5 Canvas and React'],
-    stack: ['TypeScript', 'React', 'Canvas'],
-    githubUrl: 'https://github.com/krishnakanthpathi/passphotomaker',
-    liveUrl: 'https://passphotomaker.vercel.app',
-    starsFallback: 0,
   },
   {
     id: 'cp-programs',
-    repoName: 'cp-programs',
     name: 'CP Programs',
-    kicker: 'DSA Archive',
-    category: 'rust-ai',
-    featured: false,
+    kicker: 'DSA Reference',
+    category: 'reference',
     language: 'Python',
     summary:
-      'Collection of competitive programming solutions across graphs, DP, trees, and greedy problems.',
-    architecture: ['Patterns and solutions backing 1,300+ LeetCode and Codeforces problems'],
+      'Curated competitive programming archive across graphs, DP, trees, and greedy algorithms.',
+    architecture: [
+      'Reference patterns and optimal solutions backing 1,300+ LeetCode and Codeforces problems',
+    ],
     stack: ['Python', 'C++', 'Java', 'DSA'],
     githubUrl: 'https://github.com/krishnakanthpathi/cp-programs',
-    starsFallback: 1,
   },
 ];
 

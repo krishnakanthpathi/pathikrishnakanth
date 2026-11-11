@@ -1,6 +1,6 @@
 # krishnakanth
 
-AMOLED monochrome developer portfolio for **Krishna Kanth Pathi**, hydrated from [`github.com/krishnakanthpathi`](https://github.com/krishnakanthpathi) and configured for zero-config **Vercel** deployment.
+AMOLED monochrome developer portfolio for **Krishna Kanth Pathi**, configured for zero-config **Vercel** deployment.
 
 ## Stack
 

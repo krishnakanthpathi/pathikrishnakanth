@@ -8,13 +8,12 @@ import { MagneticButton } from './MagneticButton';
 import { sound } from '../utils/sound';
 
 interface HeroProps {
-  repoCount: number;
   onExploreSystems: () => void;
 }
 
 const SMOOTH_OUT = [0.22, 1, 0.36, 1] as const;
 
-export function Hero({ repoCount, onExploreSystems }: HeroProps) {
+export function Hero({ onExploreSystems }: HeroProps) {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedInstall, setCopiedInstall] = useState(false);
 
@@ -50,11 +49,6 @@ export function Hero({ repoCount, onExploreSystems }: HeroProps) {
       // ignore clipboard errors
     }
   };
-
-  const stats = [
-    { label: 'Public Repos', value: `${repoCount}+` },
-    ...PROFILE.stats.slice(1),
-  ];
 
   return (
     <section
@@ -159,7 +153,7 @@ export function Hero({ repoCount, onExploreSystems }: HeroProps) {
           transition={{ duration: 0.5, delay: 0.46, ease: SMOOTH_OUT }}
           className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-4"
         >
-          {stats.map((stat) => (
+          {PROFILE.stats.map((stat) => (
             <div
               key={stat.label}
               className="obsidian-card rounded-2xl p-4 sm:p-5"
