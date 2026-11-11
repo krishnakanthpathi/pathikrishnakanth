@@ -7,9 +7,9 @@ export interface NavItem {
 
 export const NAV_ITEMS: NavItem[] = [
   { id: 'hero', label: 'Overview' },
-  { id: 'systems', label: 'Systems' },
+  { id: 'systems', label: 'Projects' },
   { id: 'experience', label: 'Experience' },
-  { id: 'arsenal', label: 'Arsenal' },
+  { id: 'arsenal', label: 'Stack' },
   { id: 'contact', label: 'Contact' },
 ];
 
