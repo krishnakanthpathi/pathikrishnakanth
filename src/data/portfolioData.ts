@@ -6,6 +6,8 @@ export interface ProjectItem {
   kicker: string;
   category: ProjectCategory;
   language: string;
+  image: string;
+  brightPreview?: boolean;
   summary: string;
   architecture: string[];
   stack: string[];
@@ -70,6 +72,7 @@ export const PROJECTS: ProjectItem[] = [
     kicker: 'Agent Memory',
     category: 'ai-systems',
     language: 'Rust',
+    image: '/projects/lightmem.webp',
     summary:
       'Local AI agent memory engine and MCP server in Rust with SQLite FTS5 search, ONNX embeddings, and extractive QA.',
     architecture: [
@@ -89,6 +92,7 @@ export const PROJECTS: ProjectItem[] = [
     kicker: 'Speech-to-Text',
     category: 'ai-systems',
     language: 'Rust',
+    image: '/projects/lightstt.webp',
     summary:
       'Fast Rust speech-to-text CLI and daemon supporting live mic capture, Groq/OpenAI/Phonon-2 ASR, and local cleanup.',
     architecture: [
@@ -105,6 +109,8 @@ export const PROJECTS: ProjectItem[] = [
     kicker: 'Voice Assistant',
     category: 'ai-systems',
     language: 'Python',
+    image: '/projects/maxi.webp',
+    brightPreview: true,
     summary:
       'Voice-controlled desktop assistant with a native macOS floating HUD, LLM backend, and MCP tool support.',
     architecture: [
@@ -122,6 +128,7 @@ export const PROJECTS: ProjectItem[] = [
     kicker: 'OS Automation',
     category: 'mcp',
     language: 'Python',
+    image: '/projects/native-assistant-mcp.webp',
     summary:
       'MCP server giving AI agents 49+ native OS controls for windows, Spaces, Finder, clipboard, and input.',
     architecture: [
@@ -138,6 +145,7 @@ export const PROJECTS: ProjectItem[] = [
     kicker: 'Messaging Bridge',
     category: 'mcp',
     language: 'Python',
+    image: '/projects/whatsapp-mcp.webp',
     summary:
       'MCP server letting AI agents verify numbers, resolve contact aliases, and send WhatsApp messages or files.',
     architecture: [
@@ -153,6 +161,7 @@ export const PROJECTS: ProjectItem[] = [
     kicker: 'Discord Automation',
     category: 'mcp',
     language: 'Python',
+    image: '/projects/discord-bot-mcp.webp',
     summary:
       'MCP server for managing Discord servers, channels, messages, reactions, and FFmpeg voice audio.',
     architecture: [
@@ -168,6 +177,7 @@ export const PROJECTS: ProjectItem[] = [
     kicker: 'P2P File Transfer',
     category: 'fullstack',
     language: 'Python',
+    image: '/projects/localshare.webp',
     summary:
       'Encrypted peer-to-peer file and folder transfer over LAN and Tailscale using parallel TCP sockets.',
     architecture: [
@@ -184,6 +194,7 @@ export const PROJECTS: ProjectItem[] = [
     kicker: 'Headless CMS',
     category: 'fullstack',
     language: 'TypeScript',
+    image: '/projects/queryport.webp',
     summary:
       'Headless developer portfolio CMS that manages projects, skills, and coding leaderboards through a REST API.',
     architecture: [
@@ -201,6 +212,7 @@ export const PROJECTS: ProjectItem[] = [
     kicker: 'DSA Reference',
     category: 'reference',
     language: 'Python',
+    image: '/projects/cp-programs.webp',
     summary:
       'Curated competitive programming archive across graphs, DP, trees, and greedy algorithms.',
     architecture: [
