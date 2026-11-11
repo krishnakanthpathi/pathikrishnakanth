@@ -10,12 +10,11 @@ import { sound } from '../utils/sound';
 interface HeroProps {
   repoCount: number;
   onExploreSystems: () => void;
-  onOpenPalette: () => void;
 }
 
 const SMOOTH_OUT = [0.22, 1, 0.36, 1] as const;
 
-export function Hero({ repoCount, onExploreSystems, onOpenPalette }: HeroProps) {
+export function Hero({ repoCount, onExploreSystems }: HeroProps) {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedInstall, setCopiedInstall] = useState(false);
 
@@ -132,7 +131,7 @@ export function Hero({ repoCount, onExploreSystems, onOpenPalette }: HeroProps) 
           </MagneticButton>
         </motion.div>
 
-        {/* Flagship Package Quick-Copy + Cmd+K Hint */}
+        {/* Flagship Package Quick-Copy */}
         <motion.div
           initial={{ y: 12, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -150,21 +149,6 @@ export function Hero({ repoCount, onExploreSystems, onOpenPalette }: HeroProps) 
             <span className="ml-1 border-l border-white/10 pl-2 text-[11px] text-zinc-500">
               {copiedInstall ? 'copied' : 'copy'}
             </span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => {
-              sound.tap();
-              onOpenPalette();
-            }}
-            className="tactile-btn inline-flex items-center gap-2 rounded-xl border border-white/[0.07] bg-transparent px-3 py-2 font-mono text-xs text-zinc-500 hover:border-white/15 hover:text-zinc-300"
-          >
-            <span>Press</span>
-            <kbd className="rounded border border-white/15 bg-white/[0.06] px-1.5 py-0.5 text-[10px] text-zinc-200">
-              Cmd+K
-            </kbd>
-            <span>to search repos & jump</span>
           </button>
         </motion.div>
 

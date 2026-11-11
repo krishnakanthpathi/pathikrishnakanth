@@ -6,13 +6,11 @@ import { SystemsSection } from './components/SystemsSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { ArsenalSection } from './components/ArsenalSection';
 import { Footer } from './components/Footer';
-import { CommandPalette } from './components/CommandPalette';
 import { useGitHubRepos } from './hooks/useGitHubRepos';
 import { sound } from './utils/sound';
 
 export function App() {
   const [activeSection, setActiveSection] = useState('hero');
-  const [paletteOpen, setPaletteOpen] = useState(false);
   const [muted, setMuted] = useState(() => sound.isMuted());
 
   const { repos, repoMap, syncedLive } = useGitHubRepos();
@@ -34,18 +32,6 @@ export function App() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const onGlobalKey = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
-        e.preventDefault();
-        sound.tap();
-        setPaletteOpen((prev) => !prev);
-      }
-    };
-    window.addEventListener('keydown', onGlobalKey);
-    return () => window.removeEventListener('keydown', onGlobalKey);
   }, []);
 
   const navigateTo = (id: string) => {
@@ -71,14 +57,12 @@ export function App() {
         muted={muted}
         onToggleMute={handleToggleMute}
         onNavigate={navigateTo}
-        onOpenPalette={() => setPaletteOpen(true)}
       />
 
       <main className="relative z-10">
         <Hero
           repoCount={Math.max(repos.length, 47)}
           onExploreSystems={() => navigateTo('systems')}
-          onOpenPalette={() => setPaletteOpen(true)}
         />
         <SystemsSection
           repos={repos}
@@ -89,15 +73,7 @@ export function App() {
         <ArsenalSection />
       </main>
 
-      <Footer onOpenPalette={() => setPaletteOpen(true)} />
-
-      <CommandPalette
-        isOpen={paletteOpen}
-        muted={muted}
-        onClose={() => setPaletteOpen(false)}
-        onNavigate={navigateTo}
-        onToggleMute={handleToggleMute}
-      />
+      <Footer />
     </div>
   );
 }

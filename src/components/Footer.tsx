@@ -13,7 +13,7 @@ const SOCIAL_LINKS = [
   { label: 'PyPI · lmem', href: PROFILE.pypiLmem },
 ];
 
-export function Footer({ onOpenPalette }: { onOpenPalette: () => void }) {
+export function Footer() {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -97,16 +97,9 @@ export function Footer({ onOpenPalette }: { onOpenPalette: () => void }) {
               ))}
             </div>
 
-            <button
-              type="button"
-              onClick={() => {
-                sound.tap();
-                onOpenPalette();
-              }}
-              className="font-mono text-xs text-zinc-500 hover:text-zinc-300 transition-colors text-left sm:text-right"
-            >
-              Krishna Kanth Pathi · Press Cmd+K
-            </button>
+            <span className="font-mono text-xs text-zinc-500">
+              Krishna Kanth Pathi
+            </span>
           </div>
         </div>
       </div>

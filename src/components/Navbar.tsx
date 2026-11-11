@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Command, Volume2, VolumeX } from 'lucide-react';
+import { Volume2, VolumeX } from 'lucide-react';
 import { sound } from '../utils/sound';
 
 export interface NavItem {
@@ -20,7 +20,6 @@ interface NavbarProps {
   muted: boolean;
   onToggleMute: () => void;
   onNavigate: (id: string) => void;
-  onOpenPalette: () => void;
 }
 
 export function Navbar({
@@ -28,7 +27,6 @@ export function Navbar({
   muted,
   onToggleMute,
   onNavigate,
-  onOpenPalette,
 }: NavbarProps) {
   return (
     <header className="fixed top-4 left-0 right-0 z-40 flex justify-center px-4 pointer-events-none">
@@ -92,19 +90,6 @@ export function Navbar({
           className="tactile-btn flex h-8 w-8 items-center justify-center rounded-full text-zinc-400 hover:bg-white/[0.08] hover:text-white transition-colors"
         >
           {muted ? <VolumeX className="h-3.5 w-3.5" /> : <Volume2 className="h-3.5 w-3.5" />}
-        </button>
-
-        <button
-          type="button"
-          onClick={() => {
-            sound.tap();
-            onOpenPalette();
-          }}
-          aria-label="Open command palette"
-          className="tactile-btn flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.05] px-2.5 py-1 font-mono text-[11px] text-zinc-300 hover:border-white/25 hover:text-white transition-colors"
-        >
-          <Command className="h-3 w-3" />
-          <span>K</span>
         </button>
       </motion.nav>
     </header>
