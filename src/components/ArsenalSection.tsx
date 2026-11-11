@@ -10,10 +10,10 @@ export function ArsenalSection() {
         {/* Credentials & Competitive Programming */}
         <div>
           <div className="font-mono text-xs uppercase tracking-widest text-zinc-500">
-            // 03. Verification & Algorithmic Proof
+            Achievements
           </div>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Competitive Coding & Credentials
+          <h2 className="mt-2.5 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Coding & Certifications
           </h2>
 
           <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -90,10 +90,10 @@ export function ArsenalSection() {
         {/* Technical Stack Matrix */}
         <div>
           <div className="font-mono text-xs uppercase tracking-widest text-zinc-500">
-            // 04. Technical Stack
+            Stack
           </div>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Systems & Tooling Matrix
+          <h2 className="mt-2.5 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Tools & Technologies
           </h2>
 
           <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -110,9 +110,8 @@ export function ArsenalSection() {
                 }}
                 className="obsidian-card rounded-3xl p-6"
               >
-                <div className="flex items-center justify-between font-mono text-xs text-zinc-500">
-                  <span>{domain.code}</span>
-                  <span>/</span>
+                <div className="font-mono text-xs text-zinc-500">
+                  {domain.code}
                 </div>
                 <h3 className="mt-3 text-lg font-semibold text-white">
                   {domain.title}

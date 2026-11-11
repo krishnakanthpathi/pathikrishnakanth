@@ -63,26 +63,6 @@ export function Hero({ repoCount, onExploreSystems, onOpenPalette }: HeroProps) 
       className="relative flex min-h-screen flex-col justify-center pt-28 pb-16 px-4 sm:px-6 lg:px-8"
     >
       <div className="mx-auto w-full max-w-6xl">
-        {/* Status Pill */}
-        <motion.div
-          initial={{ y: 12, opacity: 0, filter: 'blur(4px)' }}
-          animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
-          transition={{ duration: 0.4, ease: SMOOTH_OUT }}
-          className="mb-8 flex flex-wrap items-center gap-3"
-        >
-          <span className="inline-flex items-center gap-2.5 rounded-full border border-white/12 bg-white/[0.04] px-3.5 py-1.5 font-mono text-xs text-zinc-300">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
-            </span>
-            <span>{PROFILE.availability}</span>
-          </span>
-
-          <span className="font-mono text-xs text-zinc-500">
-            {PROFILE.location}
-          </span>
-        </motion.div>
-
         {/* Kinetic Title */}
         <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl leading-[1.06]">
           <GravityLetters text={PROFILE.name} />
@@ -92,9 +72,8 @@ export function Hero({ repoCount, onExploreSystems, onOpenPalette }: HeroProps) 
           initial={{ y: 14, opacity: 0, filter: 'blur(4px)' }}
           animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
           transition={{ duration: 0.45, delay: 0.16, ease: SMOOTH_OUT }}
-          className="mt-5 flex flex-wrap items-center gap-3 font-mono text-sm sm:text-base text-zinc-300"
+          className="mt-4 font-mono text-sm sm:text-base text-zinc-300"
         >
-          <span className="text-zinc-500">//</span>
           <span>{PROFILE.role}</span>
         </motion.div>
 

@@ -41,14 +41,13 @@ export function Footer({ onOpenPalette }: { onOpenPalette: () => void }) {
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <div className="font-mono text-xs uppercase tracking-widest text-zinc-500">
-                // 05. Direct Contact
+                Contact
               </div>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Let’s build fast, reliable systems.
+              <h2 className="mt-2.5 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                Get in touch
               </h2>
               <p className="mt-3 max-w-xl text-sm leading-relaxed text-zinc-400">
-                Open to Full-Stack, Backend, and AI Systems Engineering roles in{' '}
-                {PROFILE.location}.
+                Reach out for Software Engineering, Backend, or AI Systems roles.
               </p>
             </div>
 

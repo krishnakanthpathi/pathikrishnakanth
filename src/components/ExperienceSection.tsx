@@ -7,10 +7,10 @@ export function ExperienceSection() {
     <section id="experience" className="relative py-24 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto w-full max-w-6xl">
         <div className="font-mono text-xs uppercase tracking-widest text-zinc-500">
-          // 02. Experience & Foundation
+          Experience
         </div>
-        <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          Engineering Timeline
+        <h2 className="mt-2.5 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          Work & Education
         </h2>
 
         <div className="relative mt-10 space-y-5 before:absolute before:left-[23px] before:top-4 before:bottom-4 before:w-px before:bg-white/10 sm:before:left-[27px]">
