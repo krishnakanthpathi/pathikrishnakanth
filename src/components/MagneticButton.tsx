@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
-import { sound } from '../utils/sound';
 
 interface MagneticButtonProps {
   children: React.ReactNode;
@@ -45,11 +44,6 @@ export function MagneticButton({
     y.set(0);
   };
 
-  const handlePress = () => {
-    sound.tap();
-    onClick?.();
-  };
-
   return (
     <motion.div
       ref={ref}
@@ -64,7 +58,6 @@ export function MagneticButton({
           target={target}
           rel={rel}
           aria-label={ariaLabel}
-          onClick={() => sound.tap()}
           className={`tactile-btn ${className}`}
         >
           {children}
@@ -73,7 +66,7 @@ export function MagneticButton({
         <button
           type="button"
           aria-label={ariaLabel}
-          onClick={handlePress}
+          onClick={onClick}
           className={`tactile-btn ${className}`}
         >
           {children}

@@ -6,11 +6,9 @@ import { SystemsSection } from './components/SystemsSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { ArsenalSection } from './components/ArsenalSection';
 import { Footer } from './components/Footer';
-import { sound } from './utils/sound';
 
 export function App() {
   const [activeSection, setActiveSection] = useState('hero');
-  const [muted, setMuted] = useState(() => sound.isMuted());
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,22 +37,12 @@ export function App() {
     }
   };
 
-  const handleToggleMute = () => {
-    const nextMuted = sound.toggleMute();
-    setMuted(nextMuted);
-  };
-
   return (
     <div className="relative min-h-screen bg-black text-zinc-100">
       <div className="pointer-events-none fixed inset-0 z-0 amoled-grid opacity-55" />
       <DitherCanvas opacity={0.22} />
 
-      <Navbar
-        activeSection={activeSection}
-        muted={muted}
-        onToggleMute={handleToggleMute}
-        onNavigate={navigateTo}
-      />
+      <Navbar activeSection={activeSection} onNavigate={navigateTo} />
 
       <main className="relative z-10">
         <Hero onExploreSystems={() => navigateTo('systems')} />

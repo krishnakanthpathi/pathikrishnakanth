@@ -7,7 +7,7 @@ AMOLED monochrome developer portfolio for **Krishna Kanth Pathi**, configured fo
 - React 19 + TypeScript + Vite 6
 - Tailwind CSS v4 (`@tailwindcss/vite`)
 - Framer Motion (`transitions.dev` motion tokens & layout pills)
-- Obsidian UI 4x4 Bayer Dither Canvas + Web Audio API micro-haptics
+- Obsidian UI 4x4 Bayer Dither Canvas
 
 ## Local Development
 

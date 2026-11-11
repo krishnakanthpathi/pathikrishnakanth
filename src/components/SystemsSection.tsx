@@ -8,7 +8,6 @@ import {
   Package,
 } from 'lucide-react';
 import { PROJECTS, type ProjectCategory, type ProjectItem } from '../data/portfolioData';
-import { sound } from '../utils/sound';
 
 type FilterTab = 'all' | ProjectCategory;
 
@@ -106,10 +105,7 @@ function ProjectCard({
       <div className="mt-6 flex flex-wrap items-center justify-between gap-2 border-t border-white/[0.07] pt-4">
         <button
           type="button"
-          onClick={() => {
-            sound.tick();
-            setExpanded((prev) => !prev);
-          }}
+          onClick={() => setExpanded((prev) => !prev)}
           className="tactile-btn inline-flex items-center gap-1.5 rounded-lg px-2 py-1 font-mono text-xs text-zinc-400 hover:bg-white/[0.06] hover:text-white transition-colors"
         >
           <span>{expanded ? 'Hide Spec' : 'Architecture'}</span>
@@ -126,7 +122,6 @@ function ProjectCard({
               href={project.packageUrl}
               target="_blank"
               rel="noreferrer"
-              onClick={() => sound.tap()}
               className="tactile-btn inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/[0.04] px-3 py-1.5 font-mono text-[11px] text-zinc-200 hover:border-white/30 hover:text-white transition-colors"
             >
               <Package className="h-3 w-3" />
@@ -139,7 +134,6 @@ function ProjectCard({
               href={project.liveUrl}
               target="_blank"
               rel="noreferrer"
-              onClick={() => sound.tap()}
               className="tactile-btn group/btn inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.06] px-3 py-1.5 font-mono text-[11px] font-medium text-white hover:bg-white hover:text-black transition-colors"
             >
               <Globe className="h-3 w-3" />
@@ -152,7 +146,6 @@ function ProjectCard({
             href={project.githubUrl}
             target="_blank"
             rel="noreferrer"
-            onClick={() => sound.tap()}
             className="tactile-btn group/btn inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-black px-3.5 py-1.5 font-mono text-[11px] font-medium text-zinc-200 hover:border-white/35 hover:text-white transition-colors"
           >
             <span>Source</span>
@@ -192,10 +185,7 @@ export function SystemsSection() {
                 <button
                   key={tab.id}
                   type="button"
-                  onClick={() => {
-                    sound.tap();
-                    setFilter(tab.id);
-                  }}
+                  onClick={() => setFilter(tab.id)}
                   className={`relative rounded-xl px-3.5 py-1.5 font-mono text-xs transition-colors ${
                     active ? 'text-black font-semibold' : 'text-zinc-400 hover:text-white'
                   }`}

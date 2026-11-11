@@ -5,7 +5,6 @@ import { ArrowUpRight, Check, Copy, Github, Terminal } from 'lucide-react';
 import { PROFILE } from '../data/portfolioData';
 import { GravityLetters } from './GravityLetters';
 import { MagneticButton } from './MagneticButton';
-import { sound } from '../utils/sound';
 
 interface HeroProps {
   onExploreSystems: () => void;
@@ -30,7 +29,6 @@ export function Hero({ onExploreSystems }: HeroProps) {
   const handleCopyEmail = async () => {
     try {
       await navigator.clipboard.writeText(PROFILE.email);
-      sound.chime();
       fireMonochromeBurst();
       setCopiedEmail(true);
       setTimeout(() => setCopiedEmail(false), 2200);
@@ -42,7 +40,6 @@ export function Hero({ onExploreSystems }: HeroProps) {
   const handleCopyInstall = async () => {
     try {
       await navigator.clipboard.writeText(PROFILE.installCmd);
-      sound.tap();
       setCopiedInstall(true);
       setTimeout(() => setCopiedInstall(false), 1800);
     } catch {

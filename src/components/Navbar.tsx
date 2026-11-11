@@ -1,6 +1,4 @@
 import { motion } from 'framer-motion';
-import { Volume2, VolumeX } from 'lucide-react';
-import { sound } from '../utils/sound';
 
 export interface NavItem {
   id: string;
@@ -17,17 +15,10 @@ export const NAV_ITEMS: NavItem[] = [
 
 interface NavbarProps {
   activeSection: string;
-  muted: boolean;
-  onToggleMute: () => void;
   onNavigate: (id: string) => void;
 }
 
-export function Navbar({
-  activeSection,
-  muted,
-  onToggleMute,
-  onNavigate,
-}: NavbarProps) {
+export function Navbar({ activeSection, onNavigate }: NavbarProps) {
   return (
     <header className="fixed top-4 left-0 right-0 z-40 flex justify-center px-4 pointer-events-none">
       <motion.nav
@@ -39,10 +30,7 @@ export function Navbar({
       >
         <button
           type="button"
-          onClick={() => {
-            sound.tap();
-            onNavigate('hero');
-          }}
+          onClick={() => onNavigate('hero')}
           className="hidden sm:flex items-center gap-2 rounded-full px-3 py-1.5 font-mono text-xs font-medium tracking-tight text-white hover:bg-white/[0.06] transition-colors"
           aria-label="Scroll to top"
         >
@@ -59,10 +47,7 @@ export function Navbar({
               <button
                 key={item.id}
                 type="button"
-                onClick={() => {
-                  sound.tap();
-                  onNavigate(item.id);
-                }}
+                onClick={() => onNavigate(item.id)}
                 className={`relative rounded-full px-2.5 sm:px-3.5 py-1.5 text-xs font-medium transition-colors ${
                   active ? 'text-black' : 'text-zinc-400 hover:text-white'
                 }`}
@@ -79,18 +64,6 @@ export function Navbar({
             );
           })}
         </div>
-
-        <div className="h-4 w-px bg-white/10 mx-0.5" />
-
-        <button
-          type="button"
-          onClick={onToggleMute}
-          aria-label={muted ? 'Unmute UI audio' : 'Mute UI audio'}
-          title={muted ? 'Unmute UI audio' : 'Mute UI audio'}
-          className="tactile-btn flex h-8 w-8 items-center justify-center rounded-full text-zinc-400 hover:bg-white/[0.08] hover:text-white transition-colors"
-        >
-          {muted ? <VolumeX className="h-3.5 w-3.5" /> : <Volume2 className="h-3.5 w-3.5" />}
-        </button>
       </motion.nav>
     </header>
   );

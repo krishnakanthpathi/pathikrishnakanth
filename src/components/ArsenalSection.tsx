@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Award, Code2, Cpu, ShieldCheck } from 'lucide-react';
 import { CREDENTIALS, STACK_DOMAINS } from '../data/portfolioData';
-import { sound } from '../utils/sound';
 
 export function ArsenalSection() {
   return (
@@ -33,7 +32,6 @@ export function ArsenalSection() {
                     href: cred.url,
                     target: '_blank',
                     rel: 'noreferrer',
-                    onClick: () => sound.tap(),
                   }
                 : {};
 

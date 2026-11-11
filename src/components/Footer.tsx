@@ -3,7 +3,6 @@ import confetti from 'canvas-confetti';
 import { ArrowUpRight, Check, Copy, Mail } from 'lucide-react';
 import { PROFILE } from '../data/portfolioData';
 import { MagneticButton } from './MagneticButton';
-import { sound } from '../utils/sound';
 
 const SOCIAL_LINKS = [
   { label: 'GitHub', href: PROFILE.github },
@@ -19,7 +18,6 @@ export function Footer() {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(PROFILE.email);
-      sound.chime();
       confetti({
         particleCount: 34,
         spread: 60,
@@ -88,7 +86,6 @@ export function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
-                  onClick={() => sound.tap()}
                   className="group inline-flex items-center gap-1 font-mono text-xs text-zinc-400 hover:text-white transition-colors"
                 >
                   <span>{link.label}</span>
